@@ -4,10 +4,10 @@ HTML / CSS / JavaScript
 
 Editor für Windows:
 
-Notepad++
+[Notepad++](https://notepad-plus-plus.org/downloads/)
 
 Editor für Linux/Mac:
 
-Atom
+[Atom](https://atom.io/)
 
 Den Code könnt ihr einsehen indem ihr auf das jeweilige File klickt

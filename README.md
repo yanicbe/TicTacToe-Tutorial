@@ -1,5 +1,7 @@
 # TicTacToe-Tutorial
 
+Den Code findet ihr im src folder
+
 HTML / CSS / JavaScript
 
 Editor für Windows:

@@ -68,6 +68,12 @@ button:hover {
   background: #0ff30f;
 }
 
+
+
+.occupied:hover {
+  background: #ff3a3a;
+}
+
 #block_0,
 #block_1,
 #block_2 {
@@ -93,17 +99,13 @@ button:hover {
 }
 
 .selected-by-X {
-  background: green;
+	background: green;
 }
 
 .selected-by-O {
-  background: blue;
-}
-
-.occupied:hover {
-  background: #ff3a3a;
+	background: blue;
 }
 
 .footer{
-  margin-top:2rem;
+	margin-top:2rem;
 }

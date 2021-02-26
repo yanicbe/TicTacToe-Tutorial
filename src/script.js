@@ -1,20 +1,26 @@
 $( document ).ready(function() {
-	playground = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+	let playground = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 	let currentPlayer = "X"
-	let id
-	const baseClassName = "selected-by-"
-
+	let id;
+	let baseClassName = "selected-by-"
+	
     $('.play-area').click(function(event){
 		id = event.target.id
 		setMove(id.split("_")[1])
 	});
-	
-	function setMove(index) {
-		if(playground[index] !== "X" && playground[index] !== "O"){
-			playground[index] = currentPlayer
-			console.log(playground)
-			reRenderBoard()
-			switchCurrentPlayer()
+
+	function setMove(index){
+		if(!isWinner()){
+			if(playground[index] !== "X" && playground[index] !== "O"){
+				playground[index] = currentPlayer;
+				reRenderBoard()
+				if(isWinner()){
+					showWinner()
+				} else if(!hasSpaceLeft()){
+					document.getElementById("winner").innerText = "Unentschieden"
+				}
+				switchCurrentPlayer()
+			}
 		}
 	}
 	
@@ -26,5 +32,31 @@ $( document ).ready(function() {
 
 	function switchCurrentPlayer() {
 		currentPlayer = currentPlayer === "X" ? "O" : "X"
+	}
+	
+	function isWinner() {
+		return (
+			(playground[0] === playground[1] && playground[1] === playground[2]) ||
+			(playground[3] === playground[4] && playground[4] === playground[5]) ||
+			(playground[6] === playground[7] && playground[7] === playground[8]) ||                                                     
+			(playground[0] === playground[3] && playground[3] === playground[6]) ||
+			(playground[1] === playground[4] && playground[4] === playground[7]) ||
+			(playground[2] === playground[5] && playground[5] === playground[8]) ||                                                
+			(playground[0] === playground[4] && playground[4] === playground[8]) ||
+			(playground[2] === playground[4] && playground[4] === playground[6]));
+	}
+
+	function hasSpaceLeft() {
+		for (let i = 0; i < playground.length; i++) {
+			if(playground[i] !== "X" && playground[i] !== "O"){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	function showWinner() {
+		let color = currentPlayer === "X" ? "Grün" : "Blau"
+		document.getElementById("winner").innerText = "Der Spieler mit der Farbe " + color + " hat gewonnen :)"
 	}
 });

@@ -9,6 +9,13 @@ h1{
 	color: #21d4d4;
 }
 
+#title-div {
+	text-align:center;
+	margin-bottom: 8rem;
+	margin-top: 3rem;
+	font-size: 2rem;
+}
+
 .container {
   min-height: 100vh;
   display: flex;
@@ -17,11 +24,25 @@ h1{
   background: #eee;
 }
 
-#title-div {
-	text-align:center;
-	margin-bottom: 8rem;
-	margin-top: 3rem;
-	font-size: 2rem;
+.play-area{
+	background: white;
+}
+
+button {
+  position: relative;
+  outline: none;
+  border: 4px solid green;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: none;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+  background: green;
+  color: white;
 }
 
 .play-area {
@@ -29,9 +50,7 @@ h1{
   width: 300px;
   height: 300px;
   grid-template-columns: auto auto auto;
-  background: white;
 }
-
 .block {
   display: flex;
   width: 100px;
@@ -42,6 +61,11 @@ h1{
   font-weight: bold;
   border: 3px solid black;
   transition: background 0.2s ease-in-out;
+}
+
+.block:hover {
+  cursor: pointer;
+  background: #0ff30f;
 }
 
 #block_0,
@@ -68,28 +92,18 @@ h1{
   border-right: none;
 }
 
-.block:hover {
-  cursor: pointer;
-  background: #0ff30f;
+.selected-by-X {
+  background: green;
+}
+
+.selected-by-O {
+  background: blue;
+}
+
+.occupied:hover {
+  background: #ff3a3a;
 }
 
 .footer{
-	margin-top:2rem;
-}
-
-button {
-  position: relative;
-  outline: none;
-  border: 4px solid green;
-  padding: 10px 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  background: none;
-  transition: all 0.2s ease-in-out;
-}
-
-button:hover {
-  cursor: pointer;
-  background: green;
-  color: white;
+  margin-top:2rem;
 }

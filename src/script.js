@@ -59,4 +59,32 @@ $( document ).ready(function() {
 		let color = currentPlayer === "X" ? "Grün" : "Blau"
 		document.getElementById("winner").innerText = "Der Spieler mit der Farbe " + color + " hat gewonnen :)"
 	}
+
+	$('#reset-button').click(function(event){
+		playground = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+		id = "";
+		removeWinner()
+		resetFilledFields()
+	});
+
+	function removeWinner() {
+		document.getElementById("winner").innerText = ""
+	}
+
+	function resetFilledFields() {
+		removeClass(document.getElementsByClassName(baseClassName + currentPlayer))
+		switchCurrentPlayer()
+		removeClass(document.getElementsByClassName(baseClassName + currentPlayer))
+		switchCurrentPlayer()
+	}
+
+	function removeClass(toRemoveClass) {
+		let lengthOfBoard = toRemoveClass.length
+		let copy = [...toRemoveClass]
+		for (let i = 0; i < lengthOfBoard; i++) {
+			let toRemove = copy[i]
+			let classToAdd = toRemove.classList[0]
+			toRemove.classList = classToAdd
+		}	
+	}
 });
